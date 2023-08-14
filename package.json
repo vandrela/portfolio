@@ -5,7 +5,9 @@
   "scripts": {
     "start": "lerna run start",
     "test": "lerna run test",
-    "diff": "lerna diff"
+    "diff": "lerna diff",
+    "start-web": "cd packages/web && npm start",
+    "start-server": "cd packages/server && npm start"
   },
   "workspaces": [
     "packages/*"
