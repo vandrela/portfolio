@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-platter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "lerna run start",
+    "test": "lerna run test",
+    "diff": "lerna diff"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
