@@ -1,8 +1,12 @@
+import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { WelcomePage } from "./pages/WelcomePage";
 import { MainPage } from "./pages/MainPage";
 import { Header } from "./components/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement } from "./counterSlice";
+import { RootState } from "./store";
 
 interface NavigationLink {
   to: string;
@@ -16,6 +20,9 @@ const navigationLinks: NavigationLink[] = [
 ];
 
 function App() {
+  const dispatch = useDispatch();
+  const count = useSelector((state: RootState) => state.counter);
+
   return (
     <>
       <Header navigationLinks={navigationLinks} />
@@ -25,6 +32,16 @@ function App() {
         <Route path="/contactus" element={<p>Contact Us page</p>} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
+
+      <div className="App">
+        <header className="App-header">
+          <div>
+            <h1>Counter: {count}</h1>
+            <button onClick={() => dispatch(increment())}>Increment</button>
+            <button onClick={() => dispatch(decrement())}>Decrement</button>
+          </div>
+        </header>
+      </div>
     </>
   );
 }
