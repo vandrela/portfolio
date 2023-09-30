@@ -1,0 +1,1 @@
+To use jest testing run: "npm run test.jest" / "yarn test.jest"
