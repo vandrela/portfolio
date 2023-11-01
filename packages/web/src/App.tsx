@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { WelcomePage } from "./pages/WelcomePage";
@@ -7,6 +6,27 @@ import { Header } from "./components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "./counterSlice";
 import { RootState } from "./store";
+import { Carousel } from "./components/Carousel";
+import "typeface-montserrat";
+
+const slides = [
+  {
+    title: "Speed",
+    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
+  },
+  {
+    title: "Speed",
+    text: "We get things done and have a bias towards action.",
+  },
+  {
+    title: "Speed",
+    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
+  },
+  {
+    title: "Speed",
+    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
+  },
+];
 
 interface NavigationLink {
   to: string;
@@ -22,7 +42,6 @@ const navigationLinks: NavigationLink[] = [
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state: RootState) => state.counter);
-
   return (
     <>
       <Header navigationLinks={navigationLinks} />
@@ -32,7 +51,7 @@ function App() {
         <Route path="/contactus" element={<p>Contact Us page</p>} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
-
+      <Carousel slides={slides} />
       <div className="App">
         <header className="App-header">
           <div>
