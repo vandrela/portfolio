@@ -47,7 +47,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
     scrollToSlide(sliderRef.current, currentSlide - 1);
   }, [currentSlide]);
 
-  //be sure to remove the class bg-slate-950  from the first div
+ 
   return (
     <>
       <div className="h-[auto] overflow-hidden bg-transparent relative bg-slate-950">
