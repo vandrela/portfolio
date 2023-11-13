@@ -42,6 +42,7 @@ const navigationLinks: NavigationLink[] = [
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state: RootState) => state.counter);
+
   return (
     <>
       <Header navigationLinks={navigationLinks} />
@@ -52,6 +53,7 @@ function App() {
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
       <Carousel slides={slides} />
+
       <div className="App">
         <header className="App-header">
           <div>
