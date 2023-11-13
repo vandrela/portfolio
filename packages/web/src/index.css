@@ -9,9 +9,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+@layer base {
+  :root {
+    --container-size: 300px;
+  }
+}
+
+@layer utilities {
+  .slide-center {
+    transform: translateX(
+      calc(
+        max(var(--container-size), 100vw) / 2 - calc(var(--container-size) / 2)
+      )
+    );
+  }
 }
