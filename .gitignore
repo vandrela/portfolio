@@ -1,2 +1,4 @@
 node_modules
-portfolio\packages\server\dist
+portfolio/packages/server/node_modules
+portfolio/packages/server/dist
+portfolio/packages/web/node_modules

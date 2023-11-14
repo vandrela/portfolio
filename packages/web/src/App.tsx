@@ -1,13 +1,14 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { WelcomePage } from "./pages/WelcomePage";
-import { MainPage } from "./pages/MainPage";
-import { Header } from "./components/Header";
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "./counterSlice";
-import { RootState } from "./store";
+// import { Routes, Route } from "react-router-dom";
+// import { WelcomePage } from "./pages/WelcomePage";
+// import { MainPage } from "./pages/MainPage";
+// import { Header } from "./components/Header";
+// import { useDispatch, useSelector } from "react-redux";
+// import { increment, decrement } from "./counterSlice";
+// import { RootState } from "./store";
 import { Carousel } from "./components/Carousel";
+import Layout from "./components/Layout";
 import "typeface-montserrat";
+import "./App.css";
 
 const slides = [
   {
@@ -40,20 +41,20 @@ const navigationLinks: NavigationLink[] = [
 ];
 
 function App() {
-  const dispatch = useDispatch();
-  const count = useSelector((state: RootState) => state.counter);
+  // const dispatch = useDispatch();
+  // const count = useSelector((state: RootState) => state.counter);
 
   return (
-    <>
-      <Header navigationLinks={navigationLinks} />
-      <Routes>
+    <Layout>
+      {/* <Header navigationLinks={navigationLinks} /> */}
+      {/* <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/bios" element={<MainPage />} />
         <Route path="/contactus" element={<p>Contact Us page</p>} />
         <Route path="*" element={<p>Not Found</p>} />
-      </Routes>
+      </Routes> */}
       <Carousel slides={slides} />
-
+      {/* 
       <div className="App">
         <header className="App-header">
           <div>
@@ -62,8 +63,8 @@ function App() {
             <button onClick={() => dispatch(decrement())}>Decrement</button>
           </div>
         </header>
-      </div>
-    </>
+      </div> */}
+    </Layout>
   );
 }
 

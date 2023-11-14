@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from './reducer';
+// needs to be moved to another folder
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./reducer";
 
 const store = configureStore({
   reducer: rootReducer,

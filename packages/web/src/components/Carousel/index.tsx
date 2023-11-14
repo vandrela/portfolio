@@ -47,7 +47,6 @@ export const Carousel = ({ slides }: CarouselProps) => {
     scrollToSlide(sliderRef.current, currentSlide - 1);
   }, [currentSlide]);
 
- 
   return (
     <>
       <div className="h-[auto] overflow-hidden bg-transparent relative bg-slate-950">
