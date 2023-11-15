@@ -1,14 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { Chevron } from "../Chevron/Chevron";
-
-interface Slide {
-  title: string;
-  text: string;
-}
-
-interface CarouselProps {
-  slides: Slide[];
-}
+import { CarouselProps } from "../../types/carouselTypes";
 
 const slideWidth = 520;
 const slideMargin = 60;
@@ -49,7 +41,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
 
   return (
     <>
-      <div className="h-[auto] overflow-hidden bg-transparent relative bg-slate-950">
+      <div className="h-[auto] overflow-hidden bg-transparent relative">
         <ul
           ref={sliderRef}
           onScroll={(e) => setSliderPosition(e.currentTarget.scrollLeft)}
@@ -60,11 +52,11 @@ export const Carousel = ({ slides }: CarouselProps) => {
               className="shrink-0 mr-[clamp(40px,6vw,60px)] last:mr-0 snap-always flex"
               key={i}
             >
-              <div className="slide-center relative bg-[rgba(255,255,255,0.05)] border border-solid border-[rgba(255,255,255,0.20)]  h-auto w-[clamp(276px,50vw,520px)]  rounded-[18px] p-[clamp(28px,5vw,85px)]">
+              <div className="slide-center relative bg-transparentWhite border border-solid border-white20 h-auto w-[clamp(276px,50vw,520px)] rounded-[18px] p-[clamp(28px,5vw,85px)]">
                 <h2 className="text-white text-[clamp(20px,4vw,40px)] not-italic font-normal leading-[normal] mb-[clamp(20px,5vw,40px)] text-left">
                   {title}
                 </h2>
-                <p className="text-[rgba(255,255,255,0.50)] text-[clamp(16px,3vw,28px)] font-normal leading-[normal] text-left  max-w-[350px]">
+                <p className="text-transparentWhite50 text-[clamp(16px,3vw,28px)] font-normal leading-[normal] text-left  max-w-[350px]">
                   {text}
                 </p>
               </div>
@@ -74,7 +66,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
         {currentSlide !== 0 && (
           <button
             onClick={() => goToPreviousSlide()}
-            className="w-14 h-14 border-2 border-transparent bg-[rgba(2,2,2,0.3)] rounded-full flex items-center justify-center absolute  left-10 -translate-y-2/4 top-[50%] hover:scale-110 transition-all hover:bg-[rgba(2,2,2,0.41)] md:hidden"
+            className="w-14 h-14 border-2 border-transparent bg-transparentBlack30 rounded-full flex items-center justify-center absolute left-10 -translate-y-2/4 top-[50%] hover:scale-110 transition-all hover:bg-transparentBlack41 md:hidden"
           >
             <Chevron className="w-5 h-5 text-white" />
           </button>
@@ -83,7 +75,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
           <button
             disabled={scrolledToEndOfSlider || currentSlide === slides.length}
             onClick={() => goToNextSlide()}
-            className="w-14 h-14 border-2 border-transparent bg-[rgba(2,2,2,0.3)] rounded-full flex items-center justify-center absolute  right-10 -translate-y-2/4 top-[50%] hover:scale-110 transition-all hover:bg-[rgba(2,2,2,0.41)] md:hidden"
+            className="w-14 h-14 border-2 border-transparent bg-transparentBlack30 rounded-full flex items-center justify-center absolute right-10 -translate-y-2/4 top-[50%] hover:scale-110 transition-all hover:bg-transparentBlack41 md:hidden"
           >
             <Chevron className="rotate-180 w-5 h-5 text-white" />
           </button>

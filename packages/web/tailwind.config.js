@@ -4,7 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "my-red": "#fc1100",
+        darkIndigo: "#0C0D1B",
+        transparentWhite: "rgba(255, 255, 255, 0.05)",
+        white20: "rgba(255, 255, 255, 0.20)",
+        transparentWhite50: "rgba(255, 255, 255, 0.50)",
+        transparentBlack30: "rgba(2, 2, 2, 0.3)",
+        transparentBlack41: "rgba(2, 2, 2, 0.41)",
       },
     },
     screens: {
