@@ -5,10 +5,10 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { increment, decrement } from "./counterSlice";
 // import { RootState } from "./store";
-import { Carousel } from "./components/Carousel";
 import Layout from "./components/Layout";
 import "typeface-montserrat";
 import "./App.css";
+import { OurValuesBlock } from "./components/OurValuesBlock";
 
 const slides = [
   {
@@ -53,7 +53,7 @@ function App() {
         <Route path="/contactus" element={<p>Contact Us page</p>} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes> */}
-      <Carousel slides={slides} />
+      <OurValuesBlock slides={slides} />
       {/* 
       <div className="App">
         <header className="App-header">
