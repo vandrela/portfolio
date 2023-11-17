@@ -8,7 +8,8 @@
 import Layout from "./components/Layout";
 import "typeface-montserrat";
 import "./App.css";
-import { OurValuesBlock } from "./components/OurValuesBlock";
+import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
+import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
 
 const slides = [
   {
@@ -53,6 +54,7 @@ function App() {
         <Route path="/contactus" element={<p>Contact Us page</p>} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes> */}
+      <WelcomeBlock />
       <OurValuesBlock slides={slides} />
       {/* 
       <div className="App">

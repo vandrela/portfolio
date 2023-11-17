@@ -10,6 +10,24 @@ module.exports = {
         transparentWhite50: "rgba(255, 255, 255, 0.50)",
         transparentBlack30: "rgba(2, 2, 2, 0.3)",
         transparentBlack41: "rgba(2, 2, 2, 0.41)",
+        brightViolet: "#AD00FF",
+        brightGreen: "#00D715",
+        white: "#FFFFFF",
+      },
+      keyframes: {
+        "text-focus-in": {
+          "0%": {
+            filter: "blur(12px)",
+            opacity: 0,
+          },
+          "100%": {
+            filter: "blur(0px)",
+            opacity: 1,
+          },
+        },
+      },
+      animation: {
+        "text-focus-in": "text-focus-in 3s ease-in-out ",
       },
     },
     screens: {
@@ -18,6 +36,7 @@ module.exports = {
       lg: { max: "992px" },
       md: { max: "850px" },
       sm: { max: "768px" },
+      xs1: { max: "640px" },
       xs: { max: "480px" },
     },
   },

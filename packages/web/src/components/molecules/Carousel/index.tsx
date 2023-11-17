@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from "react";
-import { Chevron } from "../Chevron/Chevron";
-import { CarouselProps } from "../../types/carouselTypes";
+import { Chevron } from "../../atoms/Chevron/Chevron";
+import { CarouselProps } from "../../../types/carouselTypes";
 
 const slideWidth = 520;
 const slideMargin = 60;
