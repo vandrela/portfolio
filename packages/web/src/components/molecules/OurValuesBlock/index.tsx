@@ -1,6 +1,6 @@
-import { TitleBlock } from "../TitleBlock";
+import { TitleBlock } from "../../atoms/TitleBlock";
 import { Carousel } from "../Carousel";
-import { CarouselProps } from "../../types/carouselTypes";
+import { CarouselProps } from "../../../types/carouselTypes";
 
 export const OurValuesBlock = ({ slides }: CarouselProps) => {
   return (
