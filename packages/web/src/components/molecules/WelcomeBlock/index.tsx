@@ -31,7 +31,7 @@ export const WelcomeBlock = () => {
   }, []);
 
   return (
-    <section className="text-white h-screen w-full grid py-[10vh] relative z-0">
+    <section className="text-white h-screen w-full grid py-[10vh] relative z-0 mb-[clamp(179px,30vw,240px)]">
       <div
         className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[110%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
       ></div>
