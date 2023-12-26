@@ -10,6 +10,7 @@ import "typeface-montserrat";
 import "./App.css";
 import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
 import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
+import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
 
 const slides = [
   {
@@ -55,6 +56,7 @@ function App() {
         <Route path="*" element={<p>Not Found</p>} />
       </Routes> */}
       <WelcomeBlock />
+      <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
       {/* 
       <div className="App">
