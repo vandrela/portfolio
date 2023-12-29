@@ -6,10 +6,12 @@
 // import { increment, decrement } from "./counterSlice";
 // import { RootState } from "./store";
 import Layout from "./components/Layout";
+import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
+import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
+import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
+import DearGuest from "./components/DearGuest";
 import "typeface-montserrat";
 import "./App.css";
-import { OurValuesBlock } from "./components/OurValuesBlock";
-import DearGuest from "./components/DearGuest";
 
 const slides = [
   {
@@ -54,12 +56,14 @@ function App() {
         <Route path="/contactus" element={<p>Contact Us page</p>} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes> */}
+      <WelcomeBlock />
       <DearGuest
-        title="Dear, Guest!"
+        title="Dear guest!"
         text="Dear guest We're thrilled to invite you to our impressive project, Portfolio Profiler, created by our passionate small team. 
         We utilized React with TypeScript and Tailwind to craft professional designs and incorporate useful features for everyone.
         Cheers!"
       />
+      <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
 
       {/* 

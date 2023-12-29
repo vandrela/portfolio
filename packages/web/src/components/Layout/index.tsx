@@ -1,7 +1,7 @@
 const Layout = ({ children }: any) => {
   return (
     <>
-      <main className="h-full bg-darkIndigo">{children}</main>
+      <main className="h-full bg-darkIndigo overflow-hidden">{children}</main>
     </>
   );
 };
