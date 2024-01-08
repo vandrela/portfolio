@@ -11,6 +11,7 @@ import "./App.css";
 import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
 import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
 import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
+import { ThankYou } from "./components/molecules/ThankYouAkaFooter";
 
 const slides = [
   {
@@ -58,6 +59,7 @@ function App() {
       <WelcomeBlock />
       <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
+      <ThankYou/>
       {/* 
       <div className="App">
         <header className="App-header">
