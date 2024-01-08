@@ -1,5 +1,5 @@
 import { Button } from "../../atoms/Button";
-import { TitleBlock } from '../../atoms/TitleBlock';
+import { TitleBlock } from "../../atoms/TitleBlock";
 
 function scrollTopFunction() {
   document.body.scrollTop = 0; // For Safari
@@ -11,11 +11,19 @@ const violetColor =
 
 export const ThankYou = () => {
   return (
-    <div className="mx-auto">
-      <TitleBlock name="Thank you for watching" classNames="text-center mb-[clamp(40px,5vw,80px)]" />
+    <div className="mx-auto flex flex-col my-32">
+      {/* Needs to be done below ↓↓↓↓↓↓↓ We need To use Violet Color instead of gradientColor (take a look at WelcomeBlock index.tsx)*/}
+      {/* Add please Green color as well (for Illia) */}
+      {/* <div
+        className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[110%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
+      ></div> */}
+      <TitleBlock
+        name="Thank you for watching"
+        classNames="text-center mb-[clamp(40px,5vw,80px)]"
+      />
       <Button
         onClick={() => scrollTopFunction()}
-        classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] text-white"
+        classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] m-auto text-white"
         label="Go up"
       />
     </div>
