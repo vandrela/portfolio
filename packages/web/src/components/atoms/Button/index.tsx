@@ -11,7 +11,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`bg-white20 rounded-2xl border-y-[1.5px] border-y-white20 border-solid font-semibold leading-normal ${classNames}`}
+      className={`bg-white20 rounded-2xl border-y-[1.5px] border-y-white20 border-solid  leading-normal ${classNames}`}
       onClick={onClick}
     >
       {label}
