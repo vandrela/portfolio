@@ -12,6 +12,7 @@ import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
 import DearGuest from "./components/DearGuest";
 import "typeface-montserrat";
 import "./App.css";
+import { OurProfilers } from "./components/molecules/OurProfilers";
 import { PostYourPortfolioBlock } from "./components/molecules/PostYourPortfolioBlock";
 
 const slides = [
@@ -58,12 +59,14 @@ function App() {
         <Route path="*" element={<p>Not Found</p>} />
       </Routes> */}
       <WelcomeBlock />
+      
       <DearGuest
         title="Dear guest!"
         text="Dear guest We're thrilled to invite you to our impressive project, Portfolio Profiler, created by our passionate small team. 
         We utilized React with TypeScript and Tailwind to craft professional designs and incorporate useful features for everyone.
         Cheers!"
       />
+      <OurProfilers/>
       <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
       <PostYourPortfolioBlock />
