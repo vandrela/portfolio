@@ -12,7 +12,7 @@ export const OurProfilers = () => {
     <div className="relative z-1">
       <TitleBlock classNames="text-center text-white" name="Our profilers" />
       <div className="w-full h-auto flex gap-[75px] flex justify-center items-center pt-20 mb-[347px]">
-        <div className="hover:border hover:border-gray-600 hover:bg-white03 rounded-[20px] p-4">
+        <div className="hover:border hover:border-gray-600 hover:bg-white03 rounded-[20px] p-4 hover:p-[15px]">
           <div className="w-[375px] h-auto  flex flex-col gap-10  " ref={ref}>
             <img
               src="/images/profile_image.png"
