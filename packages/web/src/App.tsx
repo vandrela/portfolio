@@ -13,6 +13,7 @@ import DearGuest from "./components/DearGuest";
 import "typeface-montserrat";
 import "./App.css";
 import { OurProfilers } from "./components/molecules/OurProfilers";
+import { PostYourPortfolioBlock } from "./components/molecules/PostYourPortfolioBlock";
 
 const slides = [
   {
@@ -68,7 +69,7 @@ function App() {
       <OurProfilers/>
       <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
-
+      <PostYourPortfolioBlock />
       {/* 
       <div className="App">
         <header className="App-header">

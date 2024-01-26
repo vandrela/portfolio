@@ -1,4 +1,4 @@
-import React from "react";
+import { Button } from "../Button";
 
 interface HireBrickProps {
   image: string;
@@ -28,16 +28,15 @@ export const HireBrick = ({
         <img src={image} alt={name} className="h-auto w-auto" />
       </div>
       <div className="w-3/5 text-center">
-        <h6 className="mb-1">{name}</h6>
-        <p className="text-sm">{role}</p>
+        <h6 className="mb-1 lg:text-base">{name}</h6>
+        <p className="text-base lg:text-xs">{role}</p>
       </div>
       <div className="w-1/5 text-center">
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+        <Button
+          label={"Hire"}
           onClick={handleHireClick}
-        >
-          {buttonLabel}
-        </button>
+          classNames={"text-xl px-8 py-2 lg:px-4 lg:py-1 lg:text-xs"}
+        />
       </div>
     </div>
   );
