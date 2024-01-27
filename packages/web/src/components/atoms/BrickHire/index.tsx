@@ -35,7 +35,7 @@ export const HireBrick = ({
         <Button
           label={"Hire"}
           onClick={handleHireClick}
-          classNames={"text-xl px-8 py-2 lg:px-4 lg:py-1 lg:text-xs"}
+          classNames={"text-xl px-8 py-2 lg:px-4 lg:py-1 lg:text-xs bg-white20"}
         />
       </div>
     </div>
