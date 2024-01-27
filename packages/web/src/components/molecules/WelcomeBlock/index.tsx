@@ -86,7 +86,7 @@ export const WelcomeBlock = () => {
           </span>
         </h1>
         <Button
-          classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)]"
+          classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] bg-white20"
           label="Lets find it"
         />
       </div>
