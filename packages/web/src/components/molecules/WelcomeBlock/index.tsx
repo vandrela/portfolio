@@ -31,7 +31,7 @@ export const WelcomeBlock = () => {
   }, []);
 
   return (
-    <section className="text-white h-screen w-full grid py-[10vh] relative z-0 mb-[clamp(179px,30vw,240px)]">
+    <section className="text-white h-screen w-full grid py-[10vh] relative z-0">
       <div
         className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[110%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
       ></div>
@@ -86,7 +86,7 @@ export const WelcomeBlock = () => {
           </span>
         </h1>
         <Button
-          classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)]"
+          classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] bg-white20"
           label="Lets find it"
         />
       </div>

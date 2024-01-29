@@ -13,6 +13,8 @@ module.exports = {
         brightViolet: "#AD00FF",
         brightGreen: "#00D715",
         white: "#FFFFFF",
+        white03: "rgba(255, 255, 255, 0.03)",
+        grey10: "rgba(255, 255, 255, 0.1)",
       },
       keyframes: {
         "text-focus-in": {

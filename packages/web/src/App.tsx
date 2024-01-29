@@ -6,12 +6,42 @@
 // import { increment, decrement } from "./counterSlice";
 // import { RootState } from "./store";
 import Layout from "./components/Layout";
-import "typeface-montserrat";
-import "./App.css";
 import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
 import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
 import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
 import { ThankYou } from "./components/molecules/ThankYouAkaFooter";
+import DearGuest from "./components/DearGuest";
+import "typeface-montserrat";
+import "./App.css";
+import { OurProfilers } from "./components/molecules/OurProfilers";
+import { PostYourPortfolioBlock } from "./components/molecules/PostYourPortfolioBlock";
+
+const profileData = [
+  {
+    id: 1,
+    name: "James Smith",
+    image: "/images/profile_image.png",
+    position: "Backend developer",
+  },
+  {
+    id: 2,
+    name: "Tobias Williams",
+    image: "/images/profile_image1.png",
+    position: "Frontend developer",
+  },
+  {
+    id: 3,
+    name: "Michael Davis",
+    image: "/images/profile_image2.png",
+    position: "Frontend developer",
+  },
+  {
+    id: 4,
+    name: "Michael Jackson",
+    image: "/images/profile_image3.png",
+    position: "Full Stack developer",
+  },
+];
 
 const slides = [
   {
@@ -57,9 +87,19 @@ function App() {
         <Route path="*" element={<p>Not Found</p>} />
       </Routes> */}
       <WelcomeBlock />
+
+      <DearGuest
+        title="Dear guest!"
+        text="Dear guest We're thrilled to invite you to our impressive project, Portfolio Profiler, created by our passionate small team. 
+        We utilized React with TypeScript and Tailwind to craft professional designs and incorporate useful features for everyone.
+        Cheers!"
+      />
+      <OurProfilers profileData={profileData} />
       <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
-      <ThankYou/>
+
+      <PostYourPortfolioBlock />
+      <ThankYou />
       {/* 
       <div className="App">
         <header className="App-header">
