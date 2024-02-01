@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
 import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
 import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
+import { ThankYou } from "./components/molecules/ThankYouAkaFooter";
 import DearGuest from "./components/DearGuest";
 import "typeface-montserrat";
 import "./App.css";
@@ -96,7 +97,9 @@ function App() {
       <OurProfilers profileData={profileData} />
       <HiringProcessBlock />
       <OurValuesBlock slides={slides} />
+
       <PostYourPortfolioBlock />
+      <ThankYou />
       {/* 
       <div className="App">
         <header className="App-header">
