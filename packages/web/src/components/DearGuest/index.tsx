@@ -8,7 +8,7 @@ interface DearGuestProps {
   children?: ReactNode;
 }
 
-const DearGuest = ({ title, text, children }: DearGuestProps) => {
+export const DearGuest = ({ title, text, children }: DearGuestProps) => {
   return (
     <div className="w-full flex flex-row lg:flex-col items-center justify-between gap-16 px-32 py-32 md:px-8 md:py-8 lg:px-16 lg:py-16">
       <div className="lg:w-full w-1/2">
@@ -50,5 +50,3 @@ const DearGuest = ({ title, text, children }: DearGuestProps) => {
     </div>
   );
 };
-
-export default DearGuest;
