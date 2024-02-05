@@ -6,6 +6,8 @@ interface OurProfilersProps {
 }
 
 export const OurProfilers = ({ profileData }: OurProfilersProps) => {
+  console.log(profileData, "profiler data");
+
   return (
     <section>
       <TitleBlock classNames="text-center text-white" name="Our profilers" />

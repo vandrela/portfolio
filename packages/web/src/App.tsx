@@ -1,68 +1,18 @@
-import { useEffect, useState } from "react";
-import { OurValuesBlock } from "./components/molecules/OurValuesBlock";
-import { WelcomeBlock } from "./components/molecules/WelcomeBlock";
-import { HiringProcessBlock } from "./components/molecules/HiringProcessBlock";
-import { ThankYou } from "./components/molecules/ThankYouAkaFooter";
-import { OurProfilers } from "./components/molecules/OurProfilers";
-import { PostYourPortfolioBlock } from "./components/molecules/PostYourPortfolioBlock";
-import { createClient } from "@supabase/supabase-js";
-import { ProfileItemProps } from "./components/molecules/ProfilerItem";
+import { Route, Routes } from "react-router-dom";
+import { MainPage } from "./pages/MainPage";
+import { ProfilerPage } from "./pages/ProfilerPage";
 import Layout from "./components/Layout";
-import DearGuest from "./components/DearGuest";
 import "typeface-montserrat";
 import "./App.css";
 
-const slides = [
-  {
-    title: "Speed",
-    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
-  },
-  {
-    title: "Speed",
-    text: "We get things done and have a bias towards action.",
-  },
-  {
-    title: "Speed",
-    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
-  },
-  {
-    title: "Speed",
-    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
-  },
-];
-
 function App() {
-  const supabaseUrl = "https://qublhqlpkevwavzgwovl.supabase.co";
-  const supabaseKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1YmxocWxwa2V2d2F2emd3b3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY5NjM1MDIsImV4cCI6MjAyMjUzOTUwMn0.E9RUdMBbo6kISlmOTJbLBeDsvkTjPJsb1OG0TyK1qLg";
-  const supabase = createClient(supabaseUrl, supabaseKey);
-
-  const [profilers, setProfilers] = useState<ProfileItemProps[]>([]);
-
-  useEffect(() => {
-    getProfilers();
-  }, []);
-
-  async function getProfilers() {
-    const { data } = await supabase.from("OurProfilers").select();
-    setProfilers(data as ProfileItemProps[]);
-  }
-
   return (
     <Layout>
-      <WelcomeBlock />
-      <DearGuest
-        title="Dear guest!"
-        text="Dear guest We're thrilled to invite you to our impressive project, Portfolio Profiler, created by our passionate small team. 
-        We utilized React with TypeScript and Tailwind to craft professional designs and incorporate useful features for everyone.
-        Cheers!"
-      />
-      <OurProfilers profileData={profilers} />
-      <HiringProcessBlock />
-      <OurValuesBlock slides={slides} />
-
-      <PostYourPortfolioBlock />
-      <ThankYou />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/:profilerId" element={<ProfilerPage />} />
+        <Route path="*" element={<p>Not Found</p>} />
+      </Routes>
     </Layout>
   );
 }
