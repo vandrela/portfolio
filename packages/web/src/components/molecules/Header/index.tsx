@@ -13,7 +13,7 @@ export const Header = ({ socialLinks }: HeaderProps) => {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   return (
-    <header className="flex items-center justify-between text-white h-[clamp(100px,10vw,150px)] mb-[clamp(30px,5vw,80px)] max-w-[1700px] mx-auto sm:justify-end">
+    <header className="flex items-center justify-between text-white h-[clamp(100px,10vw,150px)] mb-[clamp(10px,5vw,80px)] max-w-[1700px] mx-auto sm:justify-end">
       {!isSmallScreen ? (
         <>
           <Button
