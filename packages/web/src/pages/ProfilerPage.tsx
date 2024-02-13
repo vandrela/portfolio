@@ -13,12 +13,12 @@ const userProfile = {
     imageUrl: "/images/dummyPhoto.png",
   },
   socialLinks: [
-    { link: "https://www.linkedin.com/in/pavlobodjo/", icon: "Linkedin" },
+    { link: "https://www.linkedin.com/in/pavlobodjo/", icon: "yOUtube" },
     { link: "https://twitter.com/yourusername", icon: "yoUtube" },
     { link: "https://twitter.com/yourusername", icon: "twitter" },
     { link: "https://twitter.com/yourusername", icon: "facebook" },
-    { link: "https://github.com/yourusername", icon: "giThub" },
-    { link: "https://github.com/yourusername", icon: "insTagram" },
+    // { link: "https://github.com/yourusername", icon: "giThub" },
+    // { link: "https://github.com/yourusername", icon: "insTagram" },
     // { link: "https://github.com/yourusername", icon: "insTagram" },
   ],
 };
