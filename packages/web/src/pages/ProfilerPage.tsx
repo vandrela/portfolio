@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ThankYou } from "../components/molecules/ThankYouAkaFooter";
-import { Button } from "../components/atoms/Button";
 import { MainProfileBlock } from "../components/molecules/MainProfileBlock";
-import { SocialIcons } from "../components/molecules/SocialIcons";
+import { Header } from "../components/molecules/Header";
 
 //Dummy data
 const userProfile = {
@@ -30,13 +29,7 @@ export const ProfilerPage = () => {
   return (
     <section className="px-[clamp(32px,8vw,100px)]">
       {/* Pavlo's Header here ----> */}
-      <header className="flex items-center justify-between text-white h-[clamp(100px,10vw,150px)] mb-[clamp(30px,5vw,80px)] max-w-[1700px] mx-auto">
-        <Button
-          classNames="p-5 bg-white20 px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)]"
-          label="Download CV"
-        />
-        <SocialIcons socialLinks={userProfile.socialLinks} />
-      </header>
+      <Header socialLinks={userProfile.socialLinks} />
       {/* <---- Pavlo's Header here*/}
       {/* All other components ----> */}
       <main className="text-white">

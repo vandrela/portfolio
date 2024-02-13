@@ -1,8 +1,13 @@
 import { getIconComponent } from "../../../utils/iconHelper";
 import { SocialIcon } from "../../atoms/SocialIcon";
 
+export interface SocialLink {
+  link: string;
+  icon: string;
+}
+
 interface SocialIconsProps {
-  socialLinks: { link: string; icon: string }[];
+  socialLinks: SocialLink[];
 }
 
 export const SocialIcons = ({ socialLinks }: SocialIconsProps) => {
