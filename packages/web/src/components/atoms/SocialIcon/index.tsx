@@ -6,6 +6,7 @@ export interface SocialIconProps {
 export const SocialIcon = ({ link, icon: Icon }: SocialIconProps) => (
   <a href={link} target="_blank" rel="noopener noreferrer">
     <Icon
+      className="transition duration-500 ease-in-out hover:text-black hover:bg-white"
       style={{
         height: "clamp(40px,5vw,64px)",
         width: "clamp(40px,5vw,64px)",
