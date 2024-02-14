@@ -14,7 +14,7 @@ const userProfile = {
   },
   socialLinks: [
     { link: "https://www.linkedin.com/in/pavlobodjo/", icon: "yOUtube" },
-    { link: "https://twitter.com/yourusername", icon: "yoUtube" },
+    { link: "https://twitter.com/yourusername", icon: "github" },
     { link: "https://twitter.com/yourusername", icon: "twitter" },
     { link: "https://twitter.com/yourusername", icon: "facebook" },
     // { link: "https://github.com/yourusername", icon: "giThub" },
