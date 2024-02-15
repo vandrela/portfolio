@@ -25,7 +25,9 @@ export const ProfileItem = ({
           <h3 className="text-white text-center text-[clamp(16px,3vw,32px)] font-semibold mb-[clamp(8px,2vw,20px)] ">
             {profiler_name}
           </h3>
-          <span className="text-white text-[clamp(12px,2vw,20px)] font-base border-t border-white20 pt-3 font-normal sm:border-none sm:pt-0 ">
+          <div className=" w-[65%] h-[1px] bg-white20" />
+
+          <span className="text-white text-[clamp(12px,2vw,20px)] font-base  border-white20 pt-3 font-normal sm:border-none  ">
             {profiler_role}
           </span>
         </div>
