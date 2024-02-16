@@ -11,7 +11,7 @@ export const MainProfileBlock = ({
   imageUrl,
 }: MainProfileBlockProps) => {
   return (
-    <div className="flex  mx-auto gap-[clamp(20px,4vw,40px)] max-w-[1300px] sm:flex-col">
+    <div className="flex mx-auto gap-[clamp(20px,4vw,40px)] max-w-[1300px] sm:flex-col mb-[clamp(80px,12vw,246px)]">
       <div className="w-1/2 flex flex-col justify-center sm:w-full">
         <h2 className="text-[clamp(35px,4vw,60px)] font-bold sm:text-[clamp(30px,6vw,60px)]">
           Hi There! <br />
