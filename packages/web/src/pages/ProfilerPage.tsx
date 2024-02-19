@@ -123,6 +123,36 @@ export const ProfilerPage = () => {
                 </p>
               </TransparentWrapper>
             </FlexContainer>
+            <FlexContainer title="Skills & Requiremets">
+              <TransparentWrapper additionalClasses=" flex flex-col gap-10 !p-[clamp(28px,4vw,50px)]">
+                <div className="flex w-full gap-14">
+                  {/* Positions Front end Core skills React, Typescript, Redux Other
+                  skills GraphQL, Storybook, HTML/CSS Seniority Mid, Senior Work
+                  eligibility UK (temp. eligible), EU (fully eligible) Preferred
+                  locations Not specified */}
+                  <div className="w-1/3 font-semibold text-2xl">Positions</div>
+                  <div className="w-2/3 text-2xl">Front end</div>
+                </div>
+                <div className="flex w-full gap-14">
+                  {/* Positions Front end  React, Typescript, Redux Other
+                  skills GraphQL, Storybook, HTML/CSS Seniority Mid, Senior Work
+                  eligibility UK (temp. eligible), EU (fully eligible) Preferred
+                  locations Not specified */}
+                  <div className="w-1/3 font-semibold text-2xl">
+                    Core skills
+                  </div>
+                  <div className="w-2/3 text-2xl">React, Typescript, Redux</div>
+                </div>
+                <div className="flex w-full gap-14">
+                  {/* Positions Front end Core skills React, Typescript, Redux Other
+                  skills GraphQL, Storybook, HTML/CSS Seniority Mid, Senior Work
+                  eligibility UK (temp. eligible), EU (fully eligible) Preferred
+                  locations Not specified */}
+                  <div className="w-1/3 font-semibold text-2xl">Positions</div>
+                  <div className="w-2/3 text-2xl">Front end</div>
+                </div>
+              </TransparentWrapper>
+            </FlexContainer>
             <FlexContainer title="Experience">
               {experience.map((experience) => (
                 <Card key={experience.description} {...experience} />
