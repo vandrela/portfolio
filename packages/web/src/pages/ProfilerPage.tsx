@@ -5,6 +5,7 @@ import { Header } from "../components/molecules/Header";
 import { Card } from "../components/molecules/Card";
 import { FlexContainer } from "../components/molecules/FlexContainer";
 import { useMediaQuery } from "@react-hook/media-query";
+import { TransparentWrapper } from "../components/atoms/TransparentWrapper";
 
 //Dummy data
 const userProfile = {
@@ -102,6 +103,26 @@ export const ProfilerPage = () => {
         <MainProfileBlock {...profileData} />
         <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto">
           <div className="max-w-[995px]">
+            <FlexContainer title="About me">
+              <TransparentWrapper additionalClasses=" !p-[clamp(28px,4vw,50px)]">
+                <h2 className="text-4xl font-semibold mb-10"> Discover me</h2>
+                <p className="text-[clamp(16px,3vw,20px)]  font-medium ">
+                  I'm a frontend developer with a deep passion for surfing. It's
+                  more than just a hobby; it's a lifestyle that fuels my work.
+                  Each morning, I rise before the sun, check the surf report,
+                  and head to the beach. There's something enchanting about the
+                  water, the waves, and the salty breeze. Surfing demands focus
+                  and balance, much like coding. Surfing teaches me patience and
+                  adaptability, similar to debugging and problem-solving in
+                  development. The ocean's unpredictability mirrors the endless
+                  possibilities in web development. The freedom of riding a wave
+                  parallels the satisfaction of solving coding challenges. My
+                  love for surfing and my career beautifully complement each
+                  other, keeping me grounded in nature while navigating the
+                  digital world.
+                </p>
+              </TransparentWrapper>
+            </FlexContainer>
             <FlexContainer title="Experience">
               {experience.map((experience) => (
                 <Card key={experience.description} {...experience} />
