@@ -8,11 +8,12 @@ export interface SocialLink {
 
 interface SocialIconsProps {
   socialLinks: SocialLink[];
+  classNames?: string;
 }
 
-export const SocialIcons = ({ socialLinks }: SocialIconsProps) => {
+export const SocialIcons = ({ socialLinks, classNames }: SocialIconsProps) => {
   return (
-    <nav className="flex gap-[clamp(10px,2vw,24px)]">
+    <nav className={`flex gap-[clamp(10px,2vw,24px)] ${classNames}`}>
       {socialLinks.map((social) => {
         const IconComponent = getIconComponent(social.icon);
         if (!IconComponent) return null;
