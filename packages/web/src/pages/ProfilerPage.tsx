@@ -22,7 +22,7 @@ const userProfile = {
     { link: "https://twitter.com/yourusername1", icon: "github" },
     { link: "https://twitter.com/yourusername2", icon: "twitter" },
     { link: "https://twitter.com/yourusername3", icon: "facebook" },
-     { link: "https://github.com/yourusername", icon: "giThub" },
+    //  { link: "https://github.com/yourusername", icon: "giThub" },
     // { link: "https://github.com/yourusername", icon: "insTagram" },
     // { link: "https://github.com/yourusername", icon: "insTagram" },
   ],
