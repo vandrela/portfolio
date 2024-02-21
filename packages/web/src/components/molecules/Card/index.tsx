@@ -24,14 +24,14 @@ export const Card = (props: CardProps) => {
   const isExperience = "position" in props;
   return (
     <TransparentWrapper
-      additionalClasses={`flex gap-[clamp(20px,3vw,45px)] p-[clamp(28px,3vw,50px)] max-w-[955px] ${
-        isExperience ? "xl:flex-col-reverse" : "xl:flex-col"
-      }`}
+      additionalClasses={`flex gap-[clamp(20px,2.2vw,45px)] p-[clamp(28px,3vw,50px)] max-w-[955px] ${
+        isExperience ? "2xl:flex-col-reverse" : "2xl:flex-col"
+      } !p-[clamp(28px,3vw,85px)]`}
     >
-      <div className="w-3/4 flex flex-col gap-[clamp(20px,4vw,40px)] xl:w-full">
+      <div className="w-3/4 flex flex-col gap-[clamp(20px,4vw,40px)] 2xl:w-full">
         <div className="">
           {isExperience ? (
-            <h2 className="text-[clamp(24px,4vw,30px)]">{props.position}</h2>
+            <h2 className="text-[clamp(20px,4.5vw,30px)]">{props.position}</h2>
           ) : (
             <a
               href={props.projectLink}
@@ -48,7 +48,7 @@ export const Card = (props: CardProps) => {
             </h3>
           )}
         </div>
-        <p className="text-[clamp(16px,3vw,20px)] text-gray-500 font-medium">
+        <p className="text-[clamp(14px,1.2vw,20px)] text-gray-500 font-medium">
           {props.description}
         </p>
         {props.skills && (
@@ -66,8 +66,8 @@ export const Card = (props: CardProps) => {
 
       <div
         className={`${
-          !isExperience ? "w-1/2" : "w-1/4"
-        } text-center xl:w-full xl:text-left`}
+          !isExperience ? "w-2/3" : "w-1/4"
+        } text-center 2xl:w-full 2xl:text-left`}
       >
         {!isExperience ? (
           <iframe
