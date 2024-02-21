@@ -22,7 +22,7 @@ const userProfile = {
     { link: "https://twitter.com/yourusername1", icon: "github" },
     { link: "https://twitter.com/yourusername2", icon: "twitter" },
     { link: "https://twitter.com/yourusername3", icon: "facebook" },
-    //  { link: "https://github.com/yourusername", icon: "giThub" },
+     { link: "https://github.com/yourusername", icon: "giThub" },
     // { link: "https://github.com/yourusername", icon: "insTagram" },
     // { link: "https://github.com/yourusername", icon: "insTagram" },
   ],
@@ -157,7 +157,7 @@ export const ProfilerPage = () => {
       {/* All other components ----> */}
       <main className="text-white">
         <MainProfileBlock {...profileData} />
-        <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto overflow-auto">
+        <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto">
           <div className="max-w-[995px]">
             <FlexContainer title={aboutMe.label}>
               <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)] max-w-[955px]">
