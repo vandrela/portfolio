@@ -160,7 +160,7 @@ export const ProfilerPage = () => {
         <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto overflow-auto">
           <div className="max-w-[995px]">
             <FlexContainer title={aboutMe.label}>
-              <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)]">
+              <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)] max-w-[955px]">
                 <h2 className="text-4xl font-medium mb-10">Discover me</h2>
                 {aboutMe.data.map((item) => (
                   <p className="text-[clamp(16px,1.3vw,20px)] font-normal mb-[clamp(10px,3vw,20px)]">
@@ -170,7 +170,7 @@ export const ProfilerPage = () => {
               </TransparentWrapper>
             </FlexContainer>
             <FlexContainer title={skillsAndRequirements.label}>
-              <TransparentWrapper additionalClasses=" flex flex-col gap-[clamp(20px,4vw,40px)] !p-[clamp(28px,3vw,50px)]">
+              <TransparentWrapper additionalClasses="flex flex-col gap-[clamp(20px,4vw,40px)] !p-[clamp(28px,3vw,50px)] max-w-[955px]">
                 {skillsAndRequirements.data.map((elem) => (
                   <div className="flex gap-[clamp(22px,3vw,56px)] xs:flex-col xs:gap-1">
                     <div className="w-1/3 font-semibold text-[clamp(14px,2vw,20px)] xs:w-full">

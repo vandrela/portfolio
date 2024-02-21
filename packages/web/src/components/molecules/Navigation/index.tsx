@@ -1,9 +1,36 @@
 import { TransparentWrapper } from "../../atoms/TransparentWrapper";
 import { Button } from "../../atoms/Button";
 import { SocialIcons } from "../SocialIcons";
+import { useEffect, useState } from "react";
 
 export const Navigation = ({ socialLinks, navigationItems }: any) => {
-  const isActive = true;
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      console.log(entries);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      if (sections) {
+        sections.forEach((section) => observer.unobserve(section));
+      }
+    };
+  }, []);
 
   const scrollToSection = (id: any) => {
     const section = document.getElementById(id);
@@ -13,30 +40,35 @@ export const Navigation = ({ socialLinks, navigationItems }: any) => {
   };
 
   return (
-    <div className="flex flex-col gap-[clamp(10px,1.8vw,20px)] text-white">
+    <div className="flex flex-col gap-[clamp(10px,1.8vw,20px)] text-white  top-0 max-w-full ">
       <TransparentWrapper additionalClasses="!p-[clamp(10px,1.5vw,30px)] min-h-0 rounded-[9px]">
         <h3 className="mb-[clamp(20px,3vw,40px)] text-[clamp(14px,2vw,20px)]">
           Navigation
         </h3>
         <nav>
-          <ul className="flex flex-col gap-5 text-[clamp(12px,1.5vw,20px)]">
-            {navigationItems.map((item: any) => (
-              <li
-                className={isActive ? "text-white" : "text-white/60"}
-                onClick={() => scrollToSection(item.label)}
-              >
-                <div className="flex items-center gap-[clamp(6px,1vw,12px)] font-bold">
-                  <div
-                    className={` ${
-                      isActive
-                        ? "min-w-[clamp(40px,7vw,100px)] bg-white"
-                        : "min-w-[clamp(20px,4vw,50px)] bg-white20"
-                    } h-[1px] `}
-                  ></div>
-                  <span> {item.label}</span>
-                </div>
-              </li>
-            ))}
+          <ul className="flex flex-col gap-5 text-[clamp(12px,1.3vw,20px)] font-semibold">
+            {navigationItems.map((item: any) => {
+              const isActive = activeSection === item.label;
+              return (
+                <li
+                  className={`${
+                    isActive ? "text-white" : "text-white/60"
+                  } cursor-pointer`}
+                  onClick={() => scrollToSection(item.label)}
+                >
+                  <div className="flex items-center gap-[clamp(6px,1vw,12px)]">
+                    <div
+                      className={` ${
+                        isActive
+                          ? "min-w-[clamp(40px,7vw,100px)] bg-white h-[2px]"
+                          : "min-w-[clamp(20px,4vw,50px)] bg-white20"
+                      } h-[1px] transition-all duration-500`}
+                    ></div>
+                    <span>{item.label}</span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </TransparentWrapper>
