@@ -24,7 +24,7 @@ export const Card = (props: CardProps) => {
   const isExperience = "position" in props;
   return (
     <TransparentWrapper
-      additionalClasses={`flex gap-[clamp(20px,3vw,45px)] p-[clamp(28px,4vw,50px)] max-w-[955px] ${
+      additionalClasses={`flex gap-[clamp(20px,3vw,45px)] p-[clamp(28px,3vw,50px)] max-w-[955px] ${
         isExperience ? "xl:flex-col-reverse" : "xl:flex-col"
       }`}
     >
