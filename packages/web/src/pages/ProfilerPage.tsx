@@ -7,6 +7,7 @@ import { FlexContainer } from "../components/molecules/FlexContainer";
 import { useMediaQuery } from "@react-hook/media-query";
 import { TransparentWrapper } from "../components/atoms/TransparentWrapper";
 import { Navigation } from "../components/molecules/Navigation";
+import StickyBox from "react-sticky-box";
 
 //Dummy data
 const userProfile = {
@@ -150,63 +151,67 @@ export const ProfilerPage = () => {
   });
 
   return (
-    <section className="px-[clamp(25px,6vw,100px)]">
-      {/* Pavlo's Header here ----> */}
+    <>
       <Header socialLinks={socialLinks} />
-      {/* <---- Pavlo's Header here*/}
-      {/* All other components ----> */}
-      <main className="text-white">
-        <MainProfileBlock {...profileData} />
-        <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto">
-          <div className="max-w-[995px]">
-            <FlexContainer title={aboutMe.label}>
-              <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)] max-w-[955px]">
-                <h2 className="text-4xl font-medium mb-10">Discover me</h2>
-                {aboutMe.data.map((item) => (
-                  <p className="text-[clamp(16px,1.3vw,20px)] font-normal mb-[clamp(10px,3vw,20px)]">
-                    {item}
-                  </p>
-                ))}
-              </TransparentWrapper>
-            </FlexContainer>
-            <FlexContainer title={skillsAndRequirements.label}>
-              <TransparentWrapper additionalClasses="flex flex-col gap-[clamp(20px,4vw,40px)] !p-[clamp(28px,3vw,50px)] max-w-[955px]">
-                {skillsAndRequirements.data.map((elem) => (
-                  <div className="flex gap-[clamp(22px,3vw,56px)] xs:flex-col xs:gap-1">
-                    <div className="w-1/3 font-semibold text-[clamp(14px,2vw,20px)] xs:w-full">
-                      {elem.category}
+      <section className="px-[clamp(25px,6vw,100px)]">
+        {/* Pavlo's Header here ----> */}
+        {/* <---- Pavlo's Header here*/}
+        {/* All other components ----> */}
+        <main className="text-white">
+          <MainProfileBlock {...profileData} />
+          <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto">
+            <div className="max-w-[995px]">
+              <FlexContainer title={aboutMe.label}>
+                <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)] max-w-[955px]">
+                  <h2 className="text-4xl font-medium mb-10">Discover me</h2>
+                  {aboutMe.data.map((item) => (
+                    <p className="text-[clamp(16px,1.3vw,20px)] font-normal mb-[clamp(10px,3vw,20px)]">
+                      {item}
+                    </p>
+                  ))}
+                </TransparentWrapper>
+              </FlexContainer>
+              <FlexContainer title={skillsAndRequirements.label}>
+                <TransparentWrapper additionalClasses="flex flex-col gap-[clamp(20px,4vw,40px)] !p-[clamp(28px,3vw,50px)] max-w-[955px]">
+                  {skillsAndRequirements.data.map((elem) => (
+                    <div className="flex gap-[clamp(22px,3vw,56px)] xs:flex-col xs:gap-1">
+                      <div className="w-1/3 font-semibold text-[clamp(14px,2vw,20px)] xs:w-full">
+                        {elem.category}
+                      </div>
+                      <div className="w-2/3 text-[clamp(12px,2.2vw,18px)] xs:w-full">
+                        {elem.value}
+                      </div>
                     </div>
-                    <div className="w-2/3 text-[clamp(12px,2.2vw,18px)] xs:w-full">
-                      {elem.value}
-                    </div>
-                  </div>
+                  ))}
+                </TransparentWrapper>
+              </FlexContainer>
+              <FlexContainer title={experience.label}>
+                {experience.data.map((experience) => (
+                  <Card key={experience.description} {...experience} />
                 ))}
-              </TransparentWrapper>
-            </FlexContainer>
-            <FlexContainer title={experience.label}>
-              {experience.data.map((experience) => (
-                <Card key={experience.description} {...experience} />
-              ))}
-            </FlexContainer>
-            <FlexContainer title={projects.label}>
-              {projects.data.map((project) => (
-                <Card key={project.projectLink} {...project} />
-              ))}
-            </FlexContainer>
+              </FlexContainer>
+              <FlexContainer title={projects.label}>
+                {projects.data.map((project) => (
+                  <Card key={project.projectLink} {...project} />
+                ))}
+              </FlexContainer>
+            </div>
+            {!isSmallScreen && (
+              <aside className="min-w-[30%]">
+                <StickyBox offsetTop={20} offsetBottom={20}>
+                  <Navigation
+                    socialLinks={socialLinks}
+                    navigationItems={navigationItems}
+                  />
+                </StickyBox>
+              </aside>
+            )}
           </div>
-          {!isSmallScreen && (
-            <aside className="min-w-[30%]">
-              <Navigation
-                socialLinks={socialLinks}
-                navigationItems={navigationItems}
-              />
-            </aside>
-          )}
-        </div>
-      </main>
+        </main>
 
-      {/* <---- All other components */}
-      <ThankYou />
-    </section>
+        {/* <---- All other components */}
+        <ThankYou />
+      </section>
+    </>
   );
 };
