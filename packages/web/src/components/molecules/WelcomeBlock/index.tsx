@@ -1,34 +1,15 @@
-import { useEffect, useState } from "react";
 import { ArrowIcon } from "../../atoms/ArrowIcon";
 import { Button } from "../../atoms/Button";
-
-const violetColor =
-  "bg-[radial-gradient(ellipse,rgba(79,0,107,1)_50%,transparent_70%)]";
-const greenColor =
-  "bg-[radial-gradient(ellipse,rgba(0,107,43,1)_50%,transparent_70%)]";
+import { useEmployeeAnimation } from "../../../hooks/useEmployeeAnimation";
 
 export const WelcomeBlock = () => {
-  const [isEmployee, setIsEmployee] = useState(true);
-  const [textColor, setTextColor] = useState("text-brightViolet");
-  const [gradientColor, setGradientColor] = useState(violetColor);
-  const [shouldAnimate, setShouldAnimate] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsEmployee((prevIsEmployee) => !prevIsEmployee);
-      setTextColor((prevColor) =>
-        prevColor === "text-brightViolet"
-          ? "text-brightGreen"
-          : "text-brightViolet"
-      );
-      setGradientColor((prevColor) =>
-        prevColor === violetColor ? greenColor : violetColor
-      );
-      setShouldAnimate(true);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const {
+    gradientColor,
+    isEmployee,
+    shouldAnimate,
+    textColor,
+    setShouldAnimate,
+  } = useEmployeeAnimation();
 
   return (
     <section className="text-white h-screen w-full grid py-[10vh] relative z-0">
