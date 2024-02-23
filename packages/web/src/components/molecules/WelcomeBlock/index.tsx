@@ -14,7 +14,7 @@ export const WelcomeBlock = () => {
   return (
     <section className="text-white h-screen w-full grid py-[10vh] relative z-0">
       <div
-        className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[110%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
+        className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[100%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
       ></div>
       <img
         src="/images/Group-15.png"
