@@ -51,7 +51,7 @@ const MenuButton = ({
     animate: variant,
     transition,
   };
-  const unitHeight = 4;
+  const unitHeight = 5;
   const unitWidth = (unitHeight * 24) / 24; // Default width and height
 
   return (
