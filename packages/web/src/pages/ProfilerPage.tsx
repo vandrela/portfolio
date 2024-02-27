@@ -8,6 +8,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { TransparentWrapper } from "../components/atoms/TransparentWrapper";
 import { Navigation } from "../components/molecules/Navigation";
 import StickyBox from "react-sticky-box";
+import { useEmployeeAnimation } from "../hooks/useEmployeeAnimation";
 
 //Dummy data
 const userProfile = {
@@ -139,6 +140,7 @@ const userProfile = {
 export const ProfilerPage = () => {
   let { profilerId } = useParams();
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const { gradientColor } = useEmployeeAnimation();
   const {
     profileData,
     details,
@@ -153,13 +155,16 @@ export const ProfilerPage = () => {
   return (
     <>
       <Header socialLinks={socialLinks} />
-      <section className="px-[clamp(25px,6vw,100px)]">
-        {/* Pavlo's Header here ----> */}
-        {/* <---- Pavlo's Header here*/}
-        {/* All other components ----> */}
+      <section className="px-[clamp(25px,6vw,100px)] relative z-0">
+        <div
+          className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[100%] h-[23%] sm:h-[30%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
+        ></div>
         <main className="text-white">
           <MainProfileBlock {...profileData} />
-          <div className="flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto">
+          <div className="relative flex gap-[clamp(30px,3vw,60px)] max-w-[1300px] mx-auto">
+            <div
+              className={`transition-all absolute w-[100%] h-[20%]  blur-[175px] z-[-1] opacity-50 bg-[linear-gradient(180deg,#1B0036_0%,#360000_100%)]`}
+            ></div>
             <div className="max-w-[995px]">
               <FlexContainer title={aboutMe.label}>
                 <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)] max-w-[955px]">
@@ -189,11 +194,17 @@ export const ProfilerPage = () => {
                 {experience.data.map((experience) => (
                   <Card key={experience.description} {...experience} />
                 ))}
+                <div
+                  className={`transition-all absolute w-[100%] h-[80%] bottom-0 blur-[175px] z-[-1] opacity-70 bg-[linear-gradient(180deg,#00360C_0%,#280036_100%)]`}
+                ></div>
               </FlexContainer>
               <FlexContainer title={projects.label}>
                 {projects.data.map((project) => (
                   <Card key={project.projectLink} {...project} />
                 ))}
+                 <div
+                  className={`transition-all absolute w-[100%] h-[80%] bottom-0 blur-[175px] z-[-1] opacity-70 bg-[linear-gradient(180deg,#00360C_0%,#280036_100%)]`}
+                ></div>
               </FlexContainer>
             </div>
             {!isSmallScreen && (
@@ -208,8 +219,6 @@ export const ProfilerPage = () => {
             )}
           </div>
         </main>
-
-        {/* <---- All other components */}
         <ThankYou />
       </section>
     </>

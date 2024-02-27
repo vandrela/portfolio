@@ -19,7 +19,7 @@ export const Header = ({ socialLinks }: HeaderProps) => {
     <header
       className={`flex items-center justify-between text-white h-[clamp(100px,10vw,150px)] mb-[clamp(10px,5vw,80px)] px-[clamp(25px,6vw,100px)] max-w-[1700px] mx-auto ${
         isSmallScreen && "justify-between sticky top-0 bg-transparentBlack41"
-      }`}
+      } relative z-50`}
     >
       <button
         onClick={() => navigate(-1)}

@@ -8,7 +8,7 @@ interface FlexContainerProps {
 
 export const FlexContainer = ({ title = "", children }: FlexContainerProps) => {
   return (
-    <section className="mb-[80px]" id={title}>
+    <section className="mb-[80px] relative" id={title}>
       <TitleBlock name={title} classNames="mb-[36px]" />
       <div className="flex flex-col gap-10">{children}</div>
     </section>
