@@ -37,7 +37,7 @@ export const HiringProcessBlock = () => {
     : "bg-[linear-gradient(0deg,#00360C_0%,#280036_100%)]";
 
   return (
-    <section className="mb-[clamp(80px,10vw,253px)] relative z-0">
+    <section className="mb-[clamp(80px,10vw,253px)] relative z-0"  id="Hiring process">
       <div
         className={`transition-all absolute w-[100%] h-[100%]  blur-[175px] z-[-1] opacity-50 ${gradientRotationDegree}`}
       />

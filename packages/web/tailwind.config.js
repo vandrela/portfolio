@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         darkIndigo: "#0C0D1B",
         transparentWhite: "rgba(255, 255, 255, 0.05)",
+        white30: "rgba(255, 255, 255, 0.30)",
         white20: "rgba(255, 255, 255, 0.20)",
         white10: "rgba(255, 255, 255, 0.10)",
         transparentWhite50: "rgba(255, 255, 255, 0.50)",

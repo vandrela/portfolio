@@ -10,7 +10,7 @@ export const OurValuesBlock = ({ slides }: CarouselProps) => {
     : "bg-[linear-gradient(0deg,#00360C_0%,#280036_100%)]";
 
   return (
-    <div className="relative z-0">
+    <section className="relative z-0" id="Our values">
       <TitleBlock
         name="Our values"
         classNames="text-center mb-[clamp(40px,5vw,80px)]"
@@ -19,6 +19,6 @@ export const OurValuesBlock = ({ slides }: CarouselProps) => {
         className={`transition-all -top-[-40] absolute w-[100%] h-[150%]  blur-[175px] z-[-1] opacity-50 ${gradientRotationDegree}`}
       />
       <Carousel slides={slides} />
-    </div>
+    </section>
   );
 };

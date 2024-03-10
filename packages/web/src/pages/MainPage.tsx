@@ -8,6 +8,10 @@ import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { ProfileItemProps } from "../components/molecules/ProfilerItem";
 import { DearGuest } from "../components/DearGuest";
+import { Header } from "../components/molecules/Header";
+import { useMediaQuery } from "@react-hook/media-query";
+import { Navigation } from "../components/molecules/Navigation";
+import { createPortal } from "react-dom";
 
 const slides = [
   {
@@ -35,6 +39,10 @@ export const MainPage = () => {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   const [profilers, setProfilers] = useState<ProfileItemProps[]>([]);
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const [isOpen, setOpen] = useState(false);
+
+  const navigationElement = document.getElementById("navigation");
 
   useEffect(() => {
     getProfilers();
@@ -46,7 +54,27 @@ export const MainPage = () => {
   }
 
   return (
-    <>
+    <main>
+      {isSmallScreen && <Header isOpen={isOpen} setOpen={setOpen} firstPage />}
+      {navigationElement &&
+        createPortal(
+          <>
+            {isOpen && isSmallScreen && (
+              <Navigation
+                isSmallScreen
+                setOpen={setOpen}
+                navigationItems={[
+                  { label: "Our profilers" },
+                  { label: "Hiring process" },
+                  { label: "Our values" },
+                  { label: "Post your portfolio" },
+                ]}
+              />
+            )}
+          </>,
+          navigationElement
+        )}
+
       <WelcomeBlock />
       <DearGuest
         title="Dear guest!"
@@ -60,6 +88,6 @@ export const MainPage = () => {
 
       <PostYourPortfolioBlock />
       <ThankYou />
-    </>
+    </main>
   );
 };
