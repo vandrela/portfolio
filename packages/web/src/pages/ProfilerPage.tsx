@@ -9,6 +9,8 @@ import { TransparentWrapper } from "../components/atoms/TransparentWrapper";
 import { Navigation } from "../components/molecules/Navigation";
 import StickyBox from "react-sticky-box";
 import { useEmployeeAnimation } from "../hooks/useEmployeeAnimation";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 //Dummy data
 const userProfile = {
@@ -138,9 +140,11 @@ const userProfile = {
 };
 
 export const ProfilerPage = () => {
+  const [isOpen, setOpen] = useState(false);
   let { profilerId } = useParams();
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const { gradientColor } = useEmployeeAnimation();
+  const navigationElement = document.getElementById("navigation");
   const {
     profileData,
     details,
@@ -148,13 +152,33 @@ export const ProfilerPage = () => {
     socialLinks,
   } = userProfile;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigationItems = Object.keys(details).map((key) => {
     return { label: (details as any)[key].label };
   });
 
   return (
     <>
-      <Header socialLinks={socialLinks} />
+      <Header socialLinks={socialLinks} isOpen={isOpen} setOpen={setOpen} />
+      {navigationElement &&
+        createPortal(
+          <>
+            {isOpen && isSmallScreen && (
+              <Navigation
+                isSmallScreen
+                setOpen={setOpen}
+                socialLinks={socialLinks}
+                navigationItems={navigationItems}
+                gradientColor={gradientColor}
+              />
+            )}
+          </>,
+          navigationElement
+        )}
+
       <section className="px-[clamp(25px,6vw,100px)] relative z-0">
         <div
           className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[100%] h-[23%] sm:h-[30%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
@@ -169,8 +193,11 @@ export const ProfilerPage = () => {
               <FlexContainer title={aboutMe.label}>
                 <TransparentWrapper additionalClasses="!p-[clamp(28px,3vw,50px)] max-w-[955px]">
                   <h2 className="text-4xl font-medium mb-10">Discover me</h2>
-                  {aboutMe.data.map((item) => (
-                    <p className="text-[clamp(16px,1.3vw,20px)] font-normal mb-[clamp(10px,3vw,20px)]">
+                  {aboutMe.data.map((item, i) => (
+                    <p
+                      key={i}
+                      className="text-[clamp(16px,1.3vw,20px)] font-normal mb-[clamp(10px,3vw,20px)]"
+                    >
                       {item}
                     </p>
                   ))}
@@ -178,8 +205,11 @@ export const ProfilerPage = () => {
               </FlexContainer>
               <FlexContainer title={skillsAndRequirements.label}>
                 <TransparentWrapper additionalClasses="flex flex-col gap-[clamp(20px,4vw,40px)] !p-[clamp(28px,3vw,50px)] max-w-[955px]">
-                  {skillsAndRequirements.data.map((elem) => (
-                    <div className="flex gap-[clamp(22px,3vw,56px)] xs:flex-col xs:gap-1">
+                  {skillsAndRequirements.data.map((elem, i) => (
+                    <div
+                      key={i}
+                      className="flex gap-[clamp(22px,3vw,56px)] xs:flex-col xs:gap-1"
+                    >
                       <div className="w-1/3 font-semibold text-[clamp(14px,2vw,20px)] xs:w-full">
                         {elem.category}
                       </div>
@@ -202,7 +232,7 @@ export const ProfilerPage = () => {
                 {projects.data.map((project) => (
                   <Card key={project.projectLink} {...project} />
                 ))}
-                 <div
+                <div
                   className={`transition-all absolute w-[100%] h-[80%] bottom-0 blur-[175px] z-[-1] opacity-70 bg-[linear-gradient(180deg,#00360C_0%,#280036_100%)]`}
                 ></div>
               </FlexContainer>

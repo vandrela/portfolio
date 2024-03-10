@@ -10,7 +10,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/:profilerId" element={<ProfilerPage />} />
+        <Route path="/profiler/:profilerId" element={<ProfilerPage />} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
     </Layout>

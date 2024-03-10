@@ -34,7 +34,7 @@ export const WelcomeBlock = () => {
       <img
         src="/images/Group-15.png"
         alt="large profile card"
-        className="w-[clamp(123px,9vw,165px)] h-auto object-cover absolute top-[4%] left-[57%] xs:top-[-10%] xs:left-[70%] z-[-1]"
+        className="w-[clamp(123px,9vw,165px)] h-auto object-cover absolute top-[4%] left-[57%]  z-[-1]"
       />
       <img
         src="/images/Group-19.png"
@@ -51,7 +51,7 @@ export const WelcomeBlock = () => {
         alt="average profile card"
         className="w-[clamp(85px,10vw,125px)] h-auto object-cover absolute bottom-[35%] right-[10%] 2xl:bottom-[1%] 2xl:right-[3%] sm:bottom-[4%] sm:right-[2%] z-[-1]"
       />
-      <div className="flex flex-col items-start gap-[clamp(20px,4vw,55px)] pl-[clamp(25px,17vw,410px)] self-end xs:p-5 z-1">
+      <div className="flex flex-col items-start gap-[clamp(20px,4vw,55px)] pl-[clamp(16px,8vw,410px)] self-end  z-1">
         <h1 className="font-extrabold text-[clamp(35px,6.5vw,120px)]">
           <span>Find your</span>
           <span className="block">
@@ -69,6 +69,7 @@ export const WelcomeBlock = () => {
         <Button
           classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] bg-white20"
           label="Lets find it"
+          onClick={() => {}}
         />
       </div>
       <ArrowIcon className="mx-auto self-end animate-bounce" />
