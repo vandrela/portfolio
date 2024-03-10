@@ -32,8 +32,8 @@ export const ProfileItem = ({
           </span>
         </div>
         <Link
-          className={`text-center py-[clamp(9px,2vw,16px)] text-white font-normal text-[clamp(12px,2vw,20px)] w-[clamp(120px,20vw,205px)] mx-auto group-hover:w-full duration-500  group-hover:bg-white20 rounded-[clamp(4px,2vw,10px)] bg-gray-300/10 rounded-2xl border-y-[1.5px] border-y-white20 border-solid  leading-normal`}
-          to={`/${id}`}
+          className={`text-center py-[clamp(9px,2vw,16px)] text-white font-normal text-[clamp(12px,2vw,20px)] w-[clamp(120px,20vw,205px)] mx-auto group-hover:w-full duration-500  group-hover:bg-white20 rounded-[clamp(4px,2vw,10px)] bg-gray-300/10 border-y-[1.5px] border-y-white20 border-solid  leading-normal`}
+          to={`/profiler/${id}`}
         >
           View profiler
         </Link>

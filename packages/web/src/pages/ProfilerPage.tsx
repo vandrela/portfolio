@@ -9,7 +9,7 @@ import { TransparentWrapper } from "../components/atoms/TransparentWrapper";
 import { Navigation } from "../components/molecules/Navigation";
 import StickyBox from "react-sticky-box";
 import { useEmployeeAnimation } from "../hooks/useEmployeeAnimation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 //Dummy data
@@ -151,6 +151,10 @@ export const ProfilerPage = () => {
     details: { experience, projects, aboutMe, skillsAndRequirements },
     socialLinks,
   } = userProfile;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const navigationItems = Object.keys(details).map((key) => {
     return { label: (details as any)[key].label };

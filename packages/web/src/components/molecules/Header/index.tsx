@@ -35,7 +35,10 @@ export const Header = ({
     >
       {!firstPage && (
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => {
+            navigate("/");
+            window.scrollTo(0, 0);
+          }}
           className={`w-14 h-14 border-2 border-transparent justify-center rounded-full flex items-center sm:justify-start hover:scale-110 transition-all sm:hover:bg-transparent hover:bg-white20 left-[8px] ${
             isSmallScreen ? "static" : "fixed"
           }`}
