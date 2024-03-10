@@ -68,7 +68,7 @@ export const Navigation = ({
         )}
         <div className="w-full  h-[100vh] flex flex-col justify-center px-[clamp(25px,6vw,100px)] gap-8">
           <nav className="mt-8">
-            <ul className="flex flex-col text-[22px] text-white font-bold ">
+            <ul className="flex flex-col text-[clamp(22px,4vw,32px)] text-white font-bold ">
               {navigationItems.map((item) => {
                 return (
                   <li
