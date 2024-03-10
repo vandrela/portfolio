@@ -2,14 +2,22 @@ import { TransparentWrapper } from "../../atoms/TransparentWrapper";
 import { Button } from "../../atoms/Button";
 import { SocialIcons } from "../SocialIcons";
 import { useEffect, useState } from "react";
+import { SocialLink } from "../SocialIcons";
 
+interface NavigationProps {
+  socialLinks?: SocialLink[];
+  navigationItems: { label: string }[];
+  isSmallScreen?: boolean;
+  setOpen?: (value: React.SetStateAction<boolean>) => void;
+  gradientColor?: string;
+}
 export const Navigation = ({
   socialLinks,
   navigationItems,
   isSmallScreen,
   setOpen,
   gradientColor,
-}: any) => {
+}: NavigationProps) => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
@@ -37,7 +45,7 @@ export const Navigation = ({
     };
   }, []);
 
-  const scrollToSection = (id: any) => {
+  const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       const offset = 75;
@@ -61,13 +69,13 @@ export const Navigation = ({
         <div className="w-full  h-[100vh] flex flex-col justify-center px-[clamp(25px,6vw,100px)] gap-8">
           <nav className="mt-8">
             <ul className="flex flex-col text-[22px] text-white font-bold ">
-              {navigationItems.map((item: any) => {
+              {navigationItems.map((item) => {
                 return (
                   <li
                     key={item.label}
                     className="w-full text-center p-3 cursor-pointer"
                     onClick={() => {
-                      setOpen(false);
+                      setOpen && setOpen(false);
                       scrollToSection(item.label);
                     }}
                   >
@@ -104,7 +112,7 @@ export const Navigation = ({
         </h3>
         <nav>
           <ul className="flex flex-col gap-5 text-[clamp(12px,1.3vw,20px)] font-semibold">
-            {navigationItems.map((item: any) => {
+            {navigationItems.map((item) => {
               const isActive = activeSection === item.label;
               return (
                 <li
