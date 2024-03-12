@@ -19,7 +19,7 @@ export const Navigation = ({
   gradientColor,
 }: NavigationProps) => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-
+   
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
@@ -49,8 +49,9 @@ export const Navigation = ({
     const section = document.getElementById(id);
     if (section) {
       const offset = 75;
-      const topPos =
-        section.getBoundingClientRect().top + window.pageYOffset - offset;
+      const zoomFactor = !isSmallScreen ? 60 / 100 : 1; 
+      const rect = section.getBoundingClientRect();
+      const topPos = rect.top * zoomFactor + window.pageYOffset - offset;
       window.scrollTo({
         top: topPos,
         behavior: "smooth",

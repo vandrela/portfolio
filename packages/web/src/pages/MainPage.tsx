@@ -30,6 +30,14 @@ const slides = [
     title: "Speed",
     text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
   },
+  {
+    title: "Speed",
+    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
+  },
+  {
+    title: "Speed",
+    text: "We get things done and have a bias towards action. We run a marathon and not a sprint. Though it's still a race.",
+  },
 ];
 
 export const MainPage = () => {
@@ -54,7 +62,7 @@ export const MainPage = () => {
   }
 
   return (
-    <main>
+    <>
       {isSmallScreen && <Header isOpen={isOpen} setOpen={setOpen} firstPage />}
       {navigationElement &&
         createPortal(
@@ -88,6 +96,6 @@ export const MainPage = () => {
 
       <PostYourPortfolioBlock />
       <ThankYou />
-    </main>
+    </>
   );
 };
