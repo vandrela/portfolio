@@ -47,7 +47,7 @@ export const MainPage = () => {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   const [profilers, setProfilers] = useState<ProfileItemProps[]>([]);
-  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const isSmallScreen = useMediaQuery("(max-width: 767px)");
   const [isOpen, setOpen] = useState(false);
 
   const navigationElement = document.getElementById("navigation");
@@ -82,7 +82,6 @@ export const MainPage = () => {
           </>,
           navigationElement
         )}
-
       <WelcomeBlock />
       <DearGuest
         title="Dear guest!"
