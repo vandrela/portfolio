@@ -1,6 +1,7 @@
 import { ArrowIcon } from "../../atoms/ArrowIcon";
 import { Button } from "../../atoms/Button";
 import { useEmployeeAnimation } from "../../../hooks/useEmployeeAnimation";
+import { useMediaQuery } from "@react-hook/media-query";
 
 export const WelcomeBlock = () => {
   const {
@@ -10,9 +11,14 @@ export const WelcomeBlock = () => {
     textColor,
     setShouldAnimate,
   } = useEmployeeAnimation();
+  const isSmallScreen = useMediaQuery("(max-width: 767px)");
 
   return (
-    <section className="text-white h-screen w-full grid py-[10vh] relative z-0">
+    <section
+      className={`text-white ${
+        !isSmallScreen ? "h-[167vh]" : "h-screen"
+      }  w-full grid py-[10vh] relative z-0 max-w-[2500px] mx-auto`}
+    >
       <div
         className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[100%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
       ></div>
@@ -51,8 +57,8 @@ export const WelcomeBlock = () => {
         alt="average profile card"
         className="w-[clamp(85px,10vw,125px)] h-auto object-cover absolute bottom-[35%] right-[10%] 2xl:bottom-[1%] 2xl:right-[3%] sm:bottom-[4%] sm:right-[2%] z-[-1]"
       />
-      <div className="flex flex-col items-start gap-[clamp(20px,4vw,55px)] pl-[clamp(16px,8vw,410px)] self-end  z-1">
-        <h1 className="font-extrabold text-[clamp(35px,6.5vw,120px)]">
+      <div className={`flex flex-col items-start gap-[clamp(20px,4vw,55px)] self-end  z-1  ${!isSmallScreen ? 'pl-[clamp(150px,20vw,500px)]' :'pl-[clamp(20px,7vw,200px)]'}`}>
+        <h1 className="font-extrabold text-[clamp(35px,9vw,120px)]">
           <span>Find your</span>
           <span className="block">
             best

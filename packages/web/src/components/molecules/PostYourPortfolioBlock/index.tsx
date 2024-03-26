@@ -12,7 +12,7 @@ export const PostYourPortfolioBlock = () => {
           <h2 className="text-white text-[clamp(40px,7vw,92px)] font-semibold leading-[1.3] 2xl:font-bold">
             Post your portfolio
           </h2>
-          <p className="text-white text-[clamp(20px,3vw,40px)] font-normal leading-[1.3]  2xl:mb-10">
+          <p className="text-white text-[clamp(20px,3vw,40px)] font-normal leading-[1.3]  2xl:mb-10 max-w-[520px] 2xl:max-w-full">
             You can also become a part of this site, post your portfolio and use
             it to find your client
           </p>

@@ -1,6 +1,7 @@
 import { TransparentWrapper } from "../../atoms/TransparentWrapper";
 import { Button } from "../../atoms/Button";
 import { MdArrowOutward } from "react-icons/md";
+import { formatDate } from "../../../utils/dataHelper";
 
 interface Experience {
   position: string;
@@ -81,7 +82,7 @@ export const Card = (props: CardProps) => {
           ></iframe>
         ) : (
           <time className="text-[16px] text-gray-500 font-medium block mt-[14px]">
-            {props.startDate} — {props.startDate || "Present"}
+            {formatDate(props.startDate)} — {formatDate(props.endDate)}
           </time>
         )}
       </div>

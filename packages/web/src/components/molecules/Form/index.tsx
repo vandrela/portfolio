@@ -74,7 +74,7 @@ export const Form = () => {
 
         <Button
           label="Send info"
-          classNames="rounded-[10px] py-[clamp(16px,2vw,23px)] text-white text-[clamp(16px,2vw,20px)] mt-[17px] w-full font-normal bg-white20"
+          classNames="rounded-[10px] py-[clamp(16px,2vw,23px)] text-white text-[clamp(16px,2vw,20px)] mt-[17px] w-full font-normal bg-white20 hover:bg-white30"
         />
       </form>
     </FormProvider>

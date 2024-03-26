@@ -142,7 +142,7 @@ const userProfile = {
 export const ProfilerPage = () => {
   const [isOpen, setOpen] = useState(false);
   let { profilerId } = useParams();
-  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const isSmallScreen = useMediaQuery("(max-width: 767px)");
   const { gradientColor } = useEmployeeAnimation();
   const navigationElement = document.getElementById("navigation");
   const {

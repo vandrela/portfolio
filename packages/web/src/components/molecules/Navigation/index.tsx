@@ -32,7 +32,7 @@ export const Navigation = ({
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.2,
+      threshold: 0.5,
     });
 
     const sections = document.querySelectorAll("section[id]");
