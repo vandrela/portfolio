@@ -19,7 +19,7 @@ export const Navigation = ({
   gradientColor,
 }: NavigationProps) => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-   
+
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
@@ -32,7 +32,7 @@ export const Navigation = ({
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.3,
     });
 
     const sections = document.querySelectorAll("section[id]");
@@ -49,7 +49,7 @@ export const Navigation = ({
     const section = document.getElementById(id);
     if (section) {
       const offset = 75;
-      const zoomFactor = !isSmallScreen ? 60 / 100 : 1; 
+      const zoomFactor = !isSmallScreen ? 60 / 100 : 1;
       const rect = section.getBoundingClientRect();
       const topPos = rect.top * zoomFactor + window.pageYOffset - offset;
       window.scrollTo({
@@ -117,6 +117,7 @@ export const Navigation = ({
               const isActive = activeSection === item.label;
               return (
                 <li
+                  key={item.label}
                   className={`${
                     isActive ? "text-white" : "text-white/60"
                   } cursor-pointer hover:text-white transition duration-500 ease-in-out`}
