@@ -2,8 +2,25 @@ import { ArrowIcon } from "../../atoms/ArrowIcon";
 import { Button } from "../../atoms/Button";
 import { useEmployeeAnimation } from "../../../hooks/useEmployeeAnimation";
 import { useMediaQuery } from "@react-hook/media-query";
+import { useEffect, useRef, forwardRef, useCallback } from "react";
 
-export const WelcomeBlock = () => {
+import { gsap } from "gsap";
+import { useResponsiveValue } from "../../../hooks/useResponsiveValue";
+
+type Image = {
+  id: number;
+  path: string;
+  position: { top: string; left: string };
+  speed: number;
+  scale: number;
+  opacity: number;
+};
+
+interface WelcomeBlockProps {
+  images: Image[];
+}
+
+export const WelcomeBlock = ({ images }: WelcomeBlockProps) => {
   const {
     gradientColor,
     isEmployee,
@@ -13,54 +30,56 @@ export const WelcomeBlock = () => {
   } = useEmployeeAnimation();
   const isSmallScreen = useMediaQuery("(max-width: 767px)");
 
+  const heroRef = useRef<HTMLElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const imageWrapperRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const hero = heroRef.current;
+  const gallery = galleryRef.current;
+  const imageWrapperRefsArray = imageWrapperRefs.current;
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (hero && gallery) {
+        imageWrapperRefsArray.forEach((image, index) => {
+          const x = (e.clientX - window.innerWidth / 2) * images[index].speed;
+          const y = (e.clientY - window.innerHeight / 1) * images[index].speed;
+
+          gsap.to(image, { x, y, duration: 3, smoothOrigin: true });
+        });
+      }
+    },
+    [hero, gallery, imageWrapperRefsArray, images]
+  );
+
+  useEffect(() => {
+    if (hero) hero.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      if (hero) hero.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [handleMouseMove]);
+
   return (
     <section
-      className={`text-white ${
+      className={`${
         !isSmallScreen ? "h-[167vh]" : "h-screen"
-      }  w-full grid py-[10vh] relative z-0 max-w-[2500px] mx-auto`}
+      } text-[#fefefe] overflow-x-clip relative`}
     >
       <div
-        className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[100%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px] z-[-2]`}
+        className={`transition-all absolute -translate-x-2/4 -translate-y-1/4 w-[100%] h-[100%] ${gradientColor} rounded-[50%] left-2/4 top-[-10%] blur-[175px]`}
       ></div>
-      <img
-        src="/images/Group-15.png"
-        alt="large profile card"
-        className="w-[clamp(123px,9vw,165px)] h-auto object-cover absolute top-[10%] left-[7%] 2xl:top-[2%] 2xl:left-[2%] xs1:hidden z-[-1]"
-      />
-      <img
-        src="/images/Group-15.png"
-        alt="large profile card"
-        className="w-[clamp(123px,9vw,165px)] h-auto object-cover absolute bottom-[5%] left-[10%] xs:bottom-[-10%]  xs:left-[-5%] z-[-1]"
-      />
-      <img
-        src="/images/Group-19.png"
-        alt="small profile card"
-        className="w-[clamp(69px,7vw,115px)] h-auto object-cover absolute top-[5%] left-[30%] xs:top-[5%] xs:left-[10%] z-[-1]"
-      />
-      <img
-        src="/images/Group-15.png"
-        alt="large profile card"
-        className="w-[clamp(123px,9vw,165px)] h-auto object-cover absolute top-[4%] left-[57%]  z-[-1]"
-      />
-      <img
-        src="/images/Group-19.png"
-        alt="small profile card"
-        className="w-[69px] h-auto object-cover absolute top-[10%] right-[15%] 2xl:top-[2%] 2xl:right-[6%] sm:hidden z-[-1]"
-      />
-      <img
-        src="/images/Group-15.png"
-        alt="large profile card"
-        className="w-[clamp(123px,9vw,165px)] h-auto object-cover absolute bottom-[7%] right-[25%] sm:hidden z-[-1]"
-      />
-      <img
-        src="/images/Group-15.png"
-        alt="average profile card"
-        className="w-[clamp(85px,10vw,125px)] h-auto object-cover absolute bottom-[35%] right-[10%] 2xl:bottom-[1%] 2xl:right-[3%] sm:bottom-[4%] sm:right-[2%] z-[-1]"
-      />
-      <div className={`flex flex-col items-start gap-[clamp(20px,4vw,55px)] self-end  z-1  ${!isSmallScreen ? 'pl-[clamp(150px,20vw,500px)]' :'pl-[clamp(20px,7vw,200px)]'}`}>
-        <h1 className="font-extrabold text-[clamp(35px,9vw,120px)]">
-          <span>Find your</span>
-          <span className="block">
+      <header
+        ref={heroRef}
+        className={`${
+          !isSmallScreen
+            ? "pl-[clamp(200px,30vw,700px)]"
+            : "pl-[clamp(10px,6vw,200px)]"
+        } w-full h-full flex flex-col justify-center gap-10 relative z-[2]`}
+      >
+        <h1 className="flex flex-col font-bold text-[clamp(35px,9vw,120px)] self-start">
+          <span className="self-start">Find your</span>
+          <span className="text-left">
             best
             <span
               className={`${textColor} ${
@@ -73,12 +92,57 @@ export const WelcomeBlock = () => {
           </span>
         </h1>
         <Button
-          classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] bg-white20"
-          label="Lets find it"
+          classNames="px-[clamp(40px,4vw,60px)] py-[clamp(12px,2vw,18px)] text-[clamp(18px,2vw,30px)] bg-white20 duration-[ease] self-start hover:scale-105"
+          label="Let's find it"
           onClick={() => {}}
         />
+      </header>
+      <ArrowIcon className="absolute bottom-20  sm:bottom-7 text-center animate-bounce w-full  sm:h-6" />
+      <div ref={galleryRef} className="w-full h-full absolute z-0 left-0 top-0">
+        {images.map((item, index) => {
+          return (
+            <Image
+              ref={(ref) => (imageWrapperRefs.current[index] = ref)}
+              key={item.id}
+              index={index}
+              path={item.path}
+              position={item.position}
+              scale={item.scale}
+              opacity={item.opacity}
+            />
+          );
+        })}
       </div>
-      <ArrowIcon className="mx-auto self-end animate-bounce" />
     </section>
   );
 };
+
+//This is only required for this component (WelcomeBlock)
+interface ImageProps extends Omit<Image, "id" | "speed"> {
+  index: number;
+}
+
+const Image = forwardRef<HTMLDivElement, ImageProps>(
+  ({ path, position, scale, index, opacity }, ref) => {
+    const responsiveValue = useResponsiveValue();
+    const scaleZoom = `${scale * responsiveValue}%`;
+    return (
+      <div
+        ref={ref}
+        className="absolute xs:w-[130px] xs1:w-[140px] sm:w-[150px]"
+        style={{
+          top: position.top,
+          left: position.left,
+          scale: scaleZoom,
+          opacity,
+        }}
+      >
+        <img
+          src={path}
+          alt={`Background image - ${index + 1}`}
+          className="w-full h-full block object-cover"
+        />
+      </div>
+    );
+  }
+);
