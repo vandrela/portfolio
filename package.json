@@ -16,6 +16,7 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.3",
     "react-icons": "^5.0.1"

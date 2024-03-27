@@ -40,6 +40,65 @@ const slides = [
   },
 ];
 
+const images = [
+  {
+    id: 1,
+    path: "/images/Group-15.png",
+    position: { top: "7%", left: "3%" },
+    speed: 0.1,
+    scale: 1,
+    opacity: 1,
+  },
+  {
+    id: 2,
+    path: "/images/Group-15.png",
+    position: { top: "-2%", left: "25%" },
+    speed: 0.029,
+    scale: 0.6,
+    opacity: 0.6,
+  },
+  {
+    id: 3,
+    path: "/images/Group-15.png",
+    position: { top: "45%", left: "85%" },
+    speed: 0.115,
+    scale: 0.7,
+    opacity: 0.8,
+  },
+  {
+    id: 4,
+    path: "/images/Group-15.png",
+    position: { top: "60%", left: "70%" },
+    speed: 0.07,
+    scale: 1,
+    opacity: 1,
+  },
+  {
+    id: 5,
+    path: "/images/Group-15.png",
+    position: { top: "3%", left: "60%" },
+    speed: 0.035,
+    scale: 1,
+    opacity: 1,
+  },
+  {
+    id: 6,
+    path: "/images/Group-15.png",
+    position: { top: "4%", left: "80%" },
+    speed: 0.03,
+    scale: 0.6,
+    opacity: 0.5,
+  },
+  {
+    id: 7,
+    path: "/images/Group-15.png",
+    position: { top: "68%", left: "8%" },
+    speed: 0.125,
+    scale: 1,
+    opacity: 1,
+  },
+];
+
 export const MainPage = () => {
   const supabaseUrl = "https://qublhqlpkevwavzgwovl.supabase.co";
   const supabaseKey =
@@ -82,7 +141,7 @@ export const MainPage = () => {
           </>,
           navigationElement
         )}
-      <WelcomeBlock />
+      <WelcomeBlock images={images} />
       <DearGuest
         title="Dear guest!"
         text="Dear guest We're thrilled to invite you to our impressive project, Portfolio Profiler, created by our passionate small team. 
